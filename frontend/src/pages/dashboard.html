@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>E-Commerce || Dashboard</title>
+        <link rel="stylesheet" href="../styles/dashboard.css" />
+    </head>
+    <body>
+        <section id="main">
+            <div id="header">
+                <div id="heading">
+                    <h1>Dashboard</h1>
+                </div>
+                <div id="search-container">
+                    <input type="search" name="" id="search" />
+                    <input type="submit" value="search" />
+                </div>
+                <div id="categories-container">
+                    <select name="" id="categories">
+                        <!-- categories -->
+                        <option value="" disabled selected>Category</option>
+                    </select>
+                </div>
+            </div>
+            <div id="container">
+                <!-- products table -->
+                <table id="products">
+                    <thead>
+                        <tr>
+                            <th>name</th>
+                            <th>description</th>
+                            <th>price</th>
+                            <th>stock</th>
+                            <th>actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- products -->
+                    </tbody>
+                </table>
+                <!-- new product form -->
+                <form action="" id="new-product-form"></form>
+                <!-- update product form -->
+                <form id="update-form">
+                    <input type="hidden" id="update-product-id" />
+                    <label>
+                        Name:
+                        <input type="text" id="update-product-name" />
+                    </label>
+                    <label>
+                        Description:
+                        <input type="text" id="update-product-description" />
+                    </label>
+                    <label>
+                        Price:
+                        <input
+                            type="number"
+                            id="update-product-price"
+                            step="0.01"
+                        />
+                    </label>
+                    <label>
+                        Stock:
+                        <input type="number" id="update-product-stock" />
+                    </label>
+                    <button type="button" id="submit-update-btn">
+                        Update Product
+                    </button>
+                </form>
+            </div>
+        </section>
+        <!-- Delete confirmation modal -->
+        <div id="delete-modal" class="modal" style="display: none">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Are you sure you want to delete this product?</p>
+                <button id="confirm-delete-btn">Yes</button>
+                <button id="cancel-delete-btn">No</button>
+            </div>
+        </div>
+
+        <script src="../../dist/scripts/dashboard.js" type="module"></script>
+    </body>
+</html>

@@ -1,0 +1,19 @@
+{
+    "port": 3001,
+    "open": true,
+    "browser": "default",
+    "files": [
+        "./src/**/*.{html,htm,css}",
+        "./dist/**/*.{js}"
+    ],
+    "server": {
+        "baseDir": "./src",
+        "routes": {
+            "/node_modules": "node_modules",
+            "/dist": "dist"
+        },
+        "middleware": {
+            "1": null
+        }
+    }
+}
