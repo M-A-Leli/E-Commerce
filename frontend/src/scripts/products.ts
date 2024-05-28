@@ -128,7 +128,11 @@ export class App {
 
         const imgDiv = document.createElement('div');
         imgDiv.className = 'product-img'
-        imgDiv.setAttribute('src', product.imageUrl);
+
+        const img = document.createElement('img');
+        img.setAttribute('src', product.imageUrl);
+
+        imgDiv.appendChild(img);
 
         const detailsDiv = document.createElement('div');
         detailsDiv.className = 'product-details';

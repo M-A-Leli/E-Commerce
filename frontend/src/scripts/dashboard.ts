@@ -127,8 +127,8 @@ export class App {
             <td>${product.price}</td>
             <td>${product.stock}</td>
             <td>
-            <button class="update-btn" data-id="${product.id}">Update</button>
-            <button class="delete-btn" data-id="${product.id}">Delete</button>
+            <button id="update-product-btn" data-id="${product.id}">Update</button>
+            <button id="delete-product-btn" data-id="${product.id}">Delete</button>
         </td>
         `;
 
@@ -153,17 +153,48 @@ export class App {
             }
         });
 
-        // !
-        const tableBody = document.querySelector('#products tbody');
-        if (tableBody) {
-            tableBody.addEventListener('click', (event) => {
-                if ((event.target as HTMLElement).classList.contains('delete-btn')) {
-                    this.handleDeleteButtonClick(event);
-                }
-            });
-        }
+        const newProductBtn = document.getElementById('new-product-btn') as HTMLButtonElement;
+        newProductBtn.addEventListener('click', () => {
+            this.showNewProductForm();
+        });
+        
+        const newProductSubmitBtn = document.getElementById('new-product-submit-btn') as HTMLButtonElement;
+        newProductSubmitBtn.addEventListener('click', () => {
+            // this.createProduct();
+            this.hideNewProductForm();
+        }); 
+
+        const updateProductBtn = document.getElementById('update-product-btn') as HTMLButtonElement;
+        updateProductBtn?.addEventListener('click', () => {
+            this.showUpdateProductForm();
+        });
+
+        const updateProductSubmitBtn = document.getElementById('update-product-submit-btn') as HTMLButtonElement;
+        updateProductSubmitBtn.addEventListener('click', () => {
+            this.updateProduct();
+            this.hideUpdateProductForm();
+        });
+
+        const deleteProductBtn = document.getElementById('delete-product-btn') as HTMLButtonElement;
+        deleteProductBtn?.addEventListener('click', () => {
+            // this.showDeleteModal();
+        });
+
+        const deleteProductSubmitBtn = document.getElementById('delete-product-submit-btn') as HTMLButtonElement;
+        deleteProductSubmitBtn.addEventListener('click', () => {
+            // this.deleteProduct();
+        });
 
         // !
+        // const tableBody = document.querySelector('#products tbody');
+        // if (tableBody) {
+        //     tableBody.addEventListener('click', (event) => {
+        //         if ((event.target as HTMLElement).classList.contains('delete-btn')) {
+        //             this.handleDeleteButtonClick(event);
+        //         }
+        //     });
+        // }
+
         // const tableBody = document.querySelector('#product-table tbody');
         // if (tableBody) {
         //     tableBody.addEventListener('click', (event) => {
@@ -173,10 +204,10 @@ export class App {
         //     });
         // }
 
-        const updateButton = document.getElementById('submit-update-btn') as HTMLButtonElement;
-        if (updateButton) {
-            updateButton.addEventListener('click', () => this.updateProduct());
-        }
+        // const updateButton = document.getElementById('submit-update-btn') as HTMLButtonElement;
+        // if (updateButton) {
+        //     updateButton.addEventListener('click', () => this.updateProduct());
+        // }
     }
 
     private filterProductsByCategory(category: string): void {
@@ -228,21 +259,24 @@ export class App {
         }
     }
 
-    private handleUpdateButtonClick(event: Event): void {
-        const target = event.target as HTMLElement;
-        const productId = target.getAttribute('data-id');
-        if (productId) {
-            this.fetchProductById(parseInt(productId));
-        }
-    }
+    // private handleUpdateButtonClick(event: Event): void {
+    //     const target = event.target as HTMLElement;
+    //     const productId = target.getAttribute('data-id');
+    //     if (productId) {
+    //         this.fetchProductById(parseInt(productId));
+    //     }
+    // }
 
     private async fetchProductById(productId: number): Promise<void> {
         try {
             const response = await fetch(`http://localhost:3000/products/${productId}`);
+
             if (!response.ok) {
                 throw new Error('Failed to fetch product');
             }
+
             const productData = await response.json();
+
             if (productData && typeof productData === 'object') {
                 this.populateUpdateForm(productData);
             } else {
@@ -253,14 +287,16 @@ export class App {
         }
     }
 
-    private populateUpdateForm(productData: any): void {
-        const updateForm = document.getElementById('update-form') as HTMLFormElement;
+    private populateUpdateForm(product: Product): void {
+        const updateForm = document.getElementById('update-product-form') as HTMLFormElement;
         updateForm.style.display = 'block';
-        (document.getElementById('update-product-id') as HTMLInputElement).value = productData.id;
-        (document.getElementById('update-product-name') as HTMLInputElement).value = productData.name;
-        (document.getElementById('update-product-description') as HTMLInputElement).value = productData.description;
-        (document.getElementById('update-product-price') as HTMLInputElement).value = productData.price;
-        (document.getElementById('update-product-stock') as HTMLInputElement).value = productData.stock;
+        (document.getElementById('update-product-id') as HTMLInputElement).value = "" + product.id;
+        (document.getElementById('update-product-name') as HTMLInputElement).value = product.name;
+        (document.getElementById('update-product-description') as HTMLInputElement).value = product.description;
+        (document.getElementById('update-product-price') as HTMLInputElement).value = "" + product.price;
+        (document.getElementById('update-product-stock') as HTMLInputElement).value = "" + product.stock;
+        (document.querySelector('.update-product-categories .categories') as HTMLSelectElement).selectedIndex = product.categoryId; //!
+        (document.getElementById('update-product-imgUrl') as HTMLInputElement).value = product.imageUrl;
     }
 
     private async updateProduct(): Promise<void> {
@@ -294,12 +330,58 @@ export class App {
         }
     }
 
-    private handleDeleteButtonClick(event: Event): void {
-        const target = event.target as HTMLElement;
-        const productId = target.getAttribute('data-id');
-        if (productId) {
-            this.showDeleteModal(parseInt(productId));
+    // private handleDeleteButtonClick(event: Event): void {
+    //     const target = event.target as HTMLElement;
+    //     const productId = target.getAttribute('data-id');
+    //     if (productId) {
+    //         this.showDeleteModal(parseInt(productId));
+    //     }
+    // }
+    
+    private async deleteProduct(productId: number): Promise<void> {
+        try {
+            const response = await fetch(`http://localhost:3000/products/${productId}`, {
+                method: 'DELETE',
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to delete product');
+            }
+
+            this.closeDeleteModal();
+            this.products.filter(product => product.id === productId);
+            this.renderProducts(this.products);
+        } catch (error) {
+            console.error('Error deleting product: ', error);
         }
+    }
+
+    private showNewProductForm(): void {
+        const productsTable = document.getElementById('products') as HTMLTableElement;
+        productsTable.style.display = 'none';
+        const newProductform = document.getElementById('new-product-form') as HTMLFormElement;
+        newProductform.style.display = 'flex';
+    }
+
+    private hideNewProductForm(): void {
+        const productsTable = document.getElementById('products') as HTMLTableElement;
+        productsTable.style.display = 'block'; // !
+        const newProductform = document.getElementById('new-product-form') as HTMLFormElement;
+        newProductform.style.display = 'none';
+    }
+
+    private showUpdateProductForm(): void {
+        const productsTable = document.getElementById('products') as HTMLTableElement;
+        productsTable.style.display = 'none';
+        const updateProductform = document.getElementById('update-product-form') as HTMLFormElement;
+        updateProductform.style.display = 'flex';
+    }
+
+    private hideUpdateProductForm(): void {
+        const productsTable = document.getElementById('products') as HTMLTableElement;
+        productsTable.style.display = 'block'; // !
+        const updateProductform = document.getElementById('update-product-form') as HTMLFormElement;
+        updateProductform.style.display = 'none';
     }
 
     private showDeleteModal(productId: number): void {
@@ -326,25 +408,6 @@ export class App {
         const modal = document.getElementById('delete-modal') as HTMLDivElement;
         modal.style.display = 'none';
     }
-
-    private async deleteProduct(productId: number): Promise<void> {
-        try {
-            const response = await fetch(`http://localhost:3000/products/${productId}`, {
-                method: 'DELETE',
-            });
-
-            if (!response.ok) {
-                throw new Error('Failed to delete product');
-            }
-
-            // console.log(`Product with ID ${productId} deleted successfully`);
-            this.closeDeleteModal();
-            this.fetchProducts(); //! Refresh the product list
-        } catch (error) {
-            console.error('Error deleting product: ', error);
-        }
-    }
-
 }
 
 // Initialize app
