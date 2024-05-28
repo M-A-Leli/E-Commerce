@@ -1,33 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>E-Commerce || Dashboard</title>
-        <link rel="stylesheet" href="../styles/dashboard.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    </head>
-    <body>
-        <section id="main">
-            <div id="header">
-                <div id="heading">
-                    <h1>Dashboard</h1>
-                </div>
-                <div id="search-container">
-                    <input type="search" name="" id="search" />
-                    <input type="submit" value="search" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce || Dashboard</title>
+    <link rel="stylesheet" href="../styles/dashboard.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header id="sidebar">
+        <div class="header">
+            <h1>admin</h1>
+            <button id="close-sidebar-btn"><i class="fa-solid fa-arrow-left"></i></button>
+        </div>
+        <div class="navigation">
+            <ul>
+                <li><i class="fa-solid fa-boxes-stacked"></i>products</li>
+                <!-- others -->
+            </ul>
+        </div>
+    </header>
+    <main id="main">
+        <button id="open-sidebar-btn"><i class="fa-solid fa-bars"></i></button>
+        <section id="products-section">
+            <div class="header">
+                <!-- ! dynamic -->
+                <h1 id="section">products</h1>
+            </div>
+            <div class="top-bar">
+                <div id="operation">
+                    <button id="new-product-btn"><i class="fa-solid fa-circle-plus"></i>new</button>
                 </div>
                 <div id="categories-container">
-                    <select name="" id="categories">
+                    <select name="" class="categories" id="categories">
                         <!-- categories -->
                     </select>
                 </div>
-                <div id="operation">
-                    <button id="new-product-btn"><i class="fa-solid fa-plus"></i></button>
+                <div id="search-container">
+                    <input type="search" name="" id="search" />
+                    <button disabled><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
             </div>
-            <div id="container">
-                <!-- products table -->
+            <div class="container">
                 <table id="products">
                     <thead>
                         <tr>
@@ -42,95 +56,125 @@
                         <!-- products -->
                     </tbody>
                 </table>
-                <!-- new product form -->
-                <form action="" id="new-product-form">
-                    <div class="input-group">
-                        <h1>new product</h1>
-                    </div>
-                    <div class="input-group">
-                        <label for="">name:</label>
-                        <input type="text" name="name" id="new-product-name" />
-                    </div>
-                    <div class="input-group">
-                        <label for="">description:</label>
-                        <input type="text" name="description" id="new-product-description" />
-                    </div>
-                    <div class="input-group">
-                        <label for="">price:</label>
-                        <input type="number" name="price" id="new-product-price" step="0.01"/>
-                    </div>
-                    <div class="input-group">
-                        <label for="">stock:</label>
-                        <input type="number" name="stock" id="new-product-stock" />
-                    </div>
-                    <div class="input-group new-product-categories">
-                        <label for="">category:</label>
-                        <select name="categoryId" id="categories">
-                            <!-- categories -->
-                        </select>
-                    </div>
-                    <div class="input-group">
-                        <label for="">image url:</label>
-                        <input type="text" name="imgUrl" id="new-product-imgUrl">
-                    </div>
-                    <div class="input-group buttons">
-                        <button type="button" id="new-product-submit-btn">create</button>
-                        <button type="button" id="new-product-cancel-btn">cancel</button>
-                    </div>
-                </form>
-                <!-- update product form -->
-                <form id="update-product-form">
-                    <div class="input-group">
-                        <h1>update product</h1>
-                    </div>
-                    <div class="input-group">
-                        <input type="hidden" name="id" id="update-product-id" />
-                    </div>
-                    <div class="input-group">
-                        <label for="">name:</label>
-                        <input type="text" name="name" id="update-product-name" />
-                    </div>
-                    <div class="input-group">
-                        <label for="">description:</label>
-                        <input type="text" name="description" id="update-product-description" />
-                    </div>
-                    <div class="input-group">
-                        <label for="">price:</label>
-                        <input type="number" name="price" id="update-product-price" step="0.01"/>
-                    </div>
-                    <div class="input-group">
-                        <label for="">stock:</label>
-                        <input type="number" name="stock" id="update-product-stock" />
-                    </div>
-                    <div class="input-group update-product-categories">
-                        <label for="">category:</label>
-                        <select name="categoryId" id="categories">
-                            <!-- categories -->
-                        </select>
-                    </div>
-                    <div class="input-group">
-                        <label for="">image url:</label>
-                        <input type="text" name="imgUrl" id="update-product-imgUrl">
-                    </div>
-                    <div class="input-group buttons">
-                        <button type="button" id="update-product-submit-btn">update</button>
-                        <button type="button" id="update-product-cancel-btn">cancel</button>
-                    </div>
-                </form>
             </div>
         </section>
-        <!-- Delete confirmation modal -->
-        <div id="delete-modal" class="modal" style="display: none">
-            <div class="modal-content">
-                <span class="close"><i class="fa-solid fa-circle-xmark"></i></span>
-                <p>Are you sure you want to delete this product?</p>
-                <div class="buttons">
-                    <button id="confirm-delete-btn">Yes</button>
-                    <button id="cancel-delete-btn">No</button>
+        <section id="create-product-section">
+            <div class="header">
+                <h1>new product</h1>
+            </div>
+            <form action="" id="new-product-form">
+                <div class="input-group">
+                    <label for="new-product-name">name:</label>
+                    <input type="text" name="name" id="new-product-name" />
+                    <span class="error-message" id="error-name"></span>
                 </div>
+                <div class="input-group">
+                    <label for="new-product-description">description:</label>
+                    <input type="text" name="description" id="new-product-description" />
+                    <span class="error-message" id="error-description"></span>
+                </div>
+                <div class="input-group">
+                    <label for="new-product-price">price:</label>
+                    <input type="number" name="price" id="new-product-price" step="0.01"/>
+                    <span class="error-message" id="error-price"></span>
+                </div>
+                <div class="input-group">
+                    <label for="new-product-stock">stock:</label>
+                    <input type="number" name="stock" id="new-product-stock" />
+                    <span class="error-message" id="error-stock"></span>
+                </div>
+                <div class="input-group new-product-categories">
+                    <label for="new-product-category">category:</label>
+                    <select name="categoryId" class="categories" id="new-product-category">
+                        <!-- categories -->
+                    </select>
+                    <span class="error-message" id="error-category"></span>
+                </div>
+                <div class="input-group">
+                    <label for="new-product-imgUrl">image url:</label>
+                    <input type="text" name="imgUrl" id="new-product-imgUrl">
+                    <span class="error-message" id="error-imgUrl"></span>
+                </div>
+                <div class="input-group buttons">
+                    <button type="button" id="new-product-submit-btn">create</button>
+                    <button type="button" id="new-product-cancel-btn">cancel</button>
+                </div>
+            </form>
+        </section>
+        <section id="update-product-section">
+            <div class="header">
+                <h1>update product</h1>
+            </div>
+            <form id="update-product-form">
+                <div class="input-group">
+                    <input type="hidden" name="id" id="update-product-idP" />
+                    <span class="error-message" id="error-idP"></span>
+                </div>
+                <div class="input-group">
+                    <label for="">name:</label>
+                    <input type="text" name="name" id="update-product-nameP" />
+                    <span class="error-message" id="error-nameP"></span>
+                </div>
+                <div class="input-group">
+                    <label for="">description:</label>
+                    <input type="text" name="description" id="update-product-descriptionP" />
+                    <span class="error-message" id="error-descriptionP"></span>
+                </div>
+                <div class="input-group">
+                    <label for="">price:</label>
+                    <input type="number" name="price" id="update-product-priceP" step="0.01"/>
+                    <span class="error-message" id="error-priceP"></span>
+                </div>
+                <div class="input-group">
+                    <label for="">stock:</label>
+                    <input type="number" name="stock" id="update-product-stockP" />
+                    <span class="error-message" id="error-stockP"></span>
+                </div>
+                <div class="input-group update-product-categories">
+                    <label for="">category:</label>
+                    <select name="categoryId" class="categories" id="update-product-categoryP">
+                        <!-- categories -->
+                    </select>
+                    <span class="error-message" id="error-categoryP"></span>
+                </div>
+                <div class="input-group">
+                    <label for="">image url:</label>
+                    <input type="text" name="imgUrl" id="update-product-imgUrlP">
+                    <span class="error-message" id="error-imgUrlP"></span>
+                </div>
+                <div class="input-group buttons">
+                    <button type="button" id="update-product-submit-btn">update</button>
+                    <button type="button" id="update-product-cancel-btn">cancel</button>
+                </div>
+            </form>
+        </section>
+    </main>
+    <!-- create confirmation modal -->
+    <div id="create-modal" class="modal" style="display: none">
+        <div class="modal-content">
+            <span class="close" id="close-create-modal-btn"><i class="fa-solid fa-circle-xmark"></i></span>
+            <p>product created successfully</p>
+        </div>
+    </div>
+    <!-- update confirmation modal -->
+    <div id="update-modal" class="modal" style="display: none">
+        <div class="modal-content">
+            <span class="close" id="close-update-modal-btn"><i class="fa-solid fa-circle-xmark"></i></span>
+            <p>product updated successfully</p>
+        </div>
+    </div>
+    <!-- Delete confirmation modal -->
+    <div id="delete-modal" class="modal" style="display: none">
+        <div class="modal-content">
+            <span class="close" id="close-delete-modal-btn"><i class="fa-solid fa-circle-xmark"></i></span>
+            <p>Are you sure you want to delete this product?</p>
+            <div class="buttons">
+                <button id="confirm-delete-btn">Yes</button>
+                <button id="cancel-delete-btn">No</button>
             </div>
         </div>
+    </div>
 
-        <script src="../../dist/scripts/app.js" type="module"></script>
-    </body>
+    <script src="../../dist/scripts/dashboard.js" type="module"></script>
+</body>
 </html>
