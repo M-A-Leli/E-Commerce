@@ -127,12 +127,17 @@ export class App {
         card.className = 'product';
 
         const imgDiv = document.createElement('div');
-        imgDiv.className = 'product-img'
+        imgDiv.className = 'product-img';
 
-        const img = document.createElement('img');
-        img.setAttribute('src', product.imageUrl);
+        imgDiv.innerHTML = `
+            <img src="${product.imageUrl}" alt="${product.name}">
+        `;
 
-        imgDiv.appendChild(img);
+        // const img = document.createElement('img');
+        // img.setAttribute('src', product.imageUrl);
+        // img.setAttribute('alt', product.name);
+
+        // imgDiv.appendChild(img);
 
         const detailsDiv = document.createElement('div');
         detailsDiv.className = 'product-details';

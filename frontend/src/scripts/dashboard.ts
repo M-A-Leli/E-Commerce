@@ -6,7 +6,7 @@ interface Category {
 
 // Define product interface
 interface Product {
-    id: number;
+    id: string;
     name: string;
     description: string;
     price: number;
@@ -110,12 +110,11 @@ export class App {
             throw new Error(`New product form not found`);
         }
 
-        // this.validateForm(form); // !
-
         const formData = new FormData(form);
-        
+
         const product: Product = {
-            id: parseInt(""+ this.products[this.products.length - 1].id) + 1,
+            // id: parseInt("" + this.products[this.products.length - 1].id) + 1,
+            id: "" + (parseInt(this.products[this.products.length - 1].id) + 1),
             name: formData.get('name') as string,
             description: formData.get('description') as string,
             price: parseFloat(formData.get('price') as string),
@@ -139,7 +138,8 @@ export class App {
         const formData = new FormData(form);
 
         const product: Product = {
-            id: parseInt(formData.get('id') as string, 10),
+            // id: parseInt(formData.get('id') as string, 10),
+            id: formData.get('id') as string,
             name: formData.get('name') as string,
             description: formData.get('description') as string,
             price: parseFloat(formData.get('price') as string),
@@ -280,12 +280,21 @@ export class App {
         if (input.value.trim() === '') {
             errorElement.textContent = 'This field is required.';
             isValid = false;
+            setTimeout(() => {
+                errorElement.textContent = '';
+            }, 3000);
         } else if (type === 'number' && isNaN(Number(input.value))) {
             errorElement.textContent = 'Please enter a valid number.';
             isValid = false;
+            setTimeout(() => {
+                errorElement.textContent = '';
+            }, 3000);
         } else if (type === 'url' && !this.isValidUrl(input.value)) {
             errorElement.textContent = 'Please enter a valid URL.';
             isValid = false;
+            setTimeout(() => {
+                errorElement.textContent = '';
+            }, 3000);
         } else {
             errorElement.textContent = '';
         }
@@ -301,6 +310,9 @@ export class App {
         if (select.value === '0' || select.value === '') {
             errorElement.textContent = 'Please select a category.';
             isValid = false;
+            setTimeout(() => {
+                errorElement.textContent = '';
+            }, 3000);
         } else {
             errorElement.textContent = '';
         }
@@ -379,7 +391,7 @@ export class App {
         }
     }
 
-    private async deleteProduct(productId: number): Promise<void> {
+    private async deleteProduct(productId: string): Promise<void> {
         try {
             const response = await fetch(`http://localhost:3000/products/${productId}`, {
                 method: 'DELETE'
@@ -410,12 +422,15 @@ export class App {
             if (this.validateForm(form)) {
                 const product = this.fetchNewProductFormData();
                 this.createProduct(product);
-                this.showCreateModal(); //!
+                this.showCreateModal();
                 this.hideNewProductForm();
                 this.renderProducts(this.products);
             } else {
-                // Handle form validation failure (e.g., show a message to the user)
-                console.log('Form validation failed. Please correct the errors and try again.');
+                const errorSpan = document.getElementById('errorP') as HTMLSpanElement;
+                errorSpan.textContent = 'Form validation failed. Please correct the errors and try again';
+                setTimeout(() => {
+                    errorSpan.textContent = '';
+                }, 3000);
             }
         });
 
@@ -433,7 +448,7 @@ export class App {
         createProductSeection.style.display = 'none';
     }
 
-    private showUpdateProductForm(productId: number): void {
+    private showUpdateProductForm(productId: string): void {
         const productsSection = document.getElementById('products-section') as HTMLElement;
         productsSection.style.display = 'none';
 
@@ -449,8 +464,6 @@ export class App {
             return;
         }
 
-        console.log(product);
-
         this.populateUpdateForm(product);
 
         const updateProductSubmitBtn = document.getElementById('update-product-submit-btn') as HTMLButtonElement;
@@ -458,13 +471,17 @@ export class App {
             const form = document.getElementById('update-product-form') as HTMLFormElement;
             if (this.validateForm(form)) {
                 const product = this.fetchUpdateProductFormData();
+                console.log(product);
                 this.updateProduct(product);
                 this.showUpdateModal(); // !
                 this.hideUpdateProductForm();
                 this.renderProducts(this.products);
             } else {
-                // Handle form validation failure (e.g., show a message to the user)
-                console.log('Form validation failed. Please correct the errors and try again.');
+                const errorSpan = document.getElementById('error') as HTMLSpanElement;
+                errorSpan.textContent = 'Form validation failed. Please correct the errors and try again';
+                setTimeout(() => {
+                    errorSpan.textContent = '';
+                }, 3000);
             }
         });
 
@@ -482,7 +499,7 @@ export class App {
         updateProductSeection.style.display = 'none';
     }
 
-    private showDeleteModal(productId: number): void {
+    private showDeleteModal(productId: string): void {
         const modal = document.getElementById('delete-modal') as HTMLDivElement;
         modal.style.display = 'block';
 

@@ -159,6 +159,7 @@ section .header {
 }
 
 section .header h1 {
+    text-transform: capitalize;
     color: #343A40;
 }
 
@@ -303,6 +304,22 @@ section .container {
     display: none;
 }
 
+/* #create-product-section,
+#update-product-section {
+    border: 1px solid red;
+}
+
+#create-product-section form,
+#update-product-section form {
+    border: 1px solid blue;
+    display: flex;
+}
+
+#create-product-section form .input-group,
+#update-product-section form .input-group {
+    border: 1px solid greenyellow;
+} */
+
 form {
     width: 100%;
     height: auto;
@@ -424,4 +441,58 @@ form .buttons {
 .close:focus {
     text-decoration: none;
     cursor: pointer;
+}
+
+@media only screen and (min-width:767px) and (max-width: 1024px) {
+    body {
+        flex-direction: column;
+    }
+
+    header {
+        height: 50px;
+    }
+
+    #close-sidebar-btn {
+        display: none;
+    }
+
+    header .navigation {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 479px) and (max-width: 767px) {
+    body {
+        flex-direction: column;
+    }
+
+    header {
+        height: 50px;
+    }
+
+    #close-sidebar-btn {
+        display: none;
+    }
+
+    header .navigation {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 479px) {
+    body {
+        flex-direction: column;
+    }
+
+    header {
+        height: 50px;
+    }
+
+    #close-sidebar-btn {
+        display: none;
+    }
+
+    header .navigation {
+        display: none;
+    }
 }

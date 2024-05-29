@@ -86,7 +86,10 @@ export class App {
 
         const imgDiv = document.createElement('div');
         imgDiv.className = 'product-img';
-        imgDiv.style.backgroundImage = `url(${product.imageUrl})`;
+
+        imgDiv.innerHTML = `
+            <img src="${product.imageUrl}" alt="${product.name}">
+        `;
 
         const detailsDiv = document.createElement('div');
         detailsDiv.className = 'product-details';

@@ -15,7 +15,7 @@
         </div>
         <div class="navigation">
             <ul>
-                <li><i class="fa-solid fa-boxes-stacked"></i>products</li>
+                <li><i class="fa-solid fa-boxes-stacked"></i>inventory</li>
                 <!-- others -->
             </ul>
         </div>
@@ -92,8 +92,11 @@
                 </div>
                 <div class="input-group">
                     <label for="new-product-imgUrl">image url:</label>
-                    <input type="text" name="imgUrl" id="new-product-imgUrl">
+                    <input type="url" name="imgUrl" id="new-product-imgUrl">
                     <span class="error-message" id="error-imgUrl"></span>
+                </div>
+                <div class="input-group">
+                    <span class="error-message" id="error"></span>
                 </div>
                 <div class="input-group buttons">
                     <button type="button" id="new-product-submit-btn">create</button>
@@ -105,42 +108,45 @@
             <div class="header">
                 <h1>update product</h1>
             </div>
-            <form id="update-product-form">
+            <form action="" id="update-product-form">
                 <div class="input-group">
                     <input type="hidden" name="id" id="update-product-idP" />
                     <span class="error-message" id="error-idP"></span>
                 </div>
                 <div class="input-group">
-                    <label for="">name:</label>
+                    <label for="update-product-nameP">name:</label>
                     <input type="text" name="name" id="update-product-nameP" />
                     <span class="error-message" id="error-nameP"></span>
                 </div>
                 <div class="input-group">
-                    <label for="">description:</label>
+                    <label for="update-product-descriptionP">description:</label>
                     <input type="text" name="description" id="update-product-descriptionP" />
                     <span class="error-message" id="error-descriptionP"></span>
                 </div>
                 <div class="input-group">
-                    <label for="">price:</label>
+                    <label for="update-product-priceP">price:</label>
                     <input type="number" name="price" id="update-product-priceP" step="0.01"/>
                     <span class="error-message" id="error-priceP"></span>
                 </div>
                 <div class="input-group">
-                    <label for="">stock:</label>
+                    <label for="update-product-stockP">stock:</label>
                     <input type="number" name="stock" id="update-product-stockP" />
                     <span class="error-message" id="error-stockP"></span>
                 </div>
                 <div class="input-group update-product-categories">
-                    <label for="">category:</label>
+                    <label for="update-product-categoryP">category:</label>
                     <select name="categoryId" class="categories" id="update-product-categoryP">
                         <!-- categories -->
                     </select>
                     <span class="error-message" id="error-categoryP"></span>
                 </div>
                 <div class="input-group">
-                    <label for="">image url:</label>
-                    <input type="text" name="imgUrl" id="update-product-imgUrlP">
+                    <label for="update-product-imgUrlP">image url:</label>
+                    <input type="url" name="imgUrl" id="update-product-imgUrlP">
                     <span class="error-message" id="error-imgUrlP"></span>
+                </div>
+                <div class="input-group">
+                    <span class="error-message" id="errorP"></span>
                 </div>
                 <div class="input-group buttons">
                     <button type="button" id="update-product-submit-btn">update</button>
