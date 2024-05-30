@@ -133,6 +133,8 @@ export class App {
             <img src="${product.imageUrl}" alt="${product.name}">
         `;
 
+        const inOrOutOfStock = product.inStock().split(' ').join('-');
+
         // const img = document.createElement('img');
         // img.setAttribute('src', product.imageUrl);
         // img.setAttribute('alt', product.name);
@@ -145,7 +147,7 @@ export class App {
             <h4 class="name">${product.name}</h4>
             <p class="description">${product.description}</p>
             <p class="price">$ ${product.price}</p>
-            <p class="in-stock">${product.inStock()}</p>
+            <p class="${inOrOutOfStock}">${product.inStock()}</p>
             <button class="more-info-btn" data-id="${product.id}">more info</button>
         `;
 

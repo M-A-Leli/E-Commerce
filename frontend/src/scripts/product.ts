@@ -91,13 +91,15 @@ export class App {
             <img src="${product.imageUrl}" alt="${product.name}">
         `;
 
+        const inOrOutOfStock = product.inStock().split(' ').join('-');
+
         const detailsDiv = document.createElement('div');
         detailsDiv.className = 'product-details';
         detailsDiv.innerHTML = `
             <h4 class="name">${product.name}</h4>
             <p class="description">${product.description}</p>
             <p class="price">$${product.price.toFixed(2)}</p>
-            <p class="in-stock">${product.inStock()}</p>
+            <p class="${inOrOutOfStock}">${product.inStock()}</p>
             <button class="more-info-btn" data-id="${product.id}">More Info</button>
         `;
 

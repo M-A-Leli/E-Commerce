@@ -378,6 +378,16 @@ form .buttons {
     background-color: #0069d9;
 }
 
+#new-product-cancel-btn,
+#update-product-cancel-btn{
+    background-color: #dc3545;
+}
+
+#new-product-cancel-btn:hover,
+#update-product-cancel-btn:hover{
+    background-color: #a52a35;
+}
+
 .modal {
     display: none; 
     position: fixed;
