@@ -47,10 +47,10 @@
       "name": "Smartphone X",
       "description": "High-end smartphone with advanced features",
       "price": 799.99,
-      "stock": 106,
+      "stock": 100,
       "categoryId": 1,
       "imageUrl": "https://images-cdn.ubuy.co.in/633a87dfd6b53a07f76e0444-ip12-pro-max-unlocked-smartphone-for.jpg",
-      "modifiedAt": "2024-05-29T13:55:14.697Z"
+      "modifiedAt": "2024-05-29T11:05:39.113Z"
     },
     {
       "id": "2",
@@ -177,9 +177,8 @@
       "price": 899.99,
       "stock": 20,
       "categoryId": 1,
-      "imageUrl": "",
-      "createdAt": "2024-05-25 00:00:00",
-      "modifiedAt": "2024-05-25 00:00:00"
+      "imageUrl": "https://hotpoint.co.ke/media/cache/ff/dd/ffdd66088af5295f93b044de63a637e8.webp",
+      "modifiedAt": "2024-05-30T05:47:27.497Z"
     },
     {
       "id": "14",
@@ -188,9 +187,8 @@
       "price": 129.99,
       "stock": 40,
       "categoryId": 3,
-      "imageUrl": "",
-      "createdAt": "2024-05-25 00:00:00",
-      "modifiedAt": "2024-05-25 00:00:00"
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDEi2P14lHg61LSp7O_D9B0vrZMhuLOLSmFw&s",
+      "modifiedAt": "2024-05-30T05:48:04.280Z"
     },
     {
       "id": "15",
@@ -199,9 +197,8 @@
       "price": 19.99,
       "stock": 60,
       "categoryId": 4,
-      "imageUrl": "",
-      "createdAt": "2024-05-25 00:00:00",
-      "modifiedAt": "2024-05-25 00:00:00"
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQanomIwFm7en9qZi89DCfxLzcyl7yy8xiMnA&s",
+      "modifiedAt": "2024-05-30T05:48:36.266Z"
     },
     {
       "id": "16",
@@ -210,9 +207,8 @@
       "price": 49.99,
       "stock": 25,
       "categoryId": 5,
-      "imageUrl": "",
-      "createdAt": "2024-05-25 00:00:00",
-      "modifiedAt": "2024-05-25 00:00:00"
+      "imageUrl": "https://m.media-amazon.com/images/I/6150X3vIV+L.jpg",
+      "modifiedAt": "2024-05-30T05:49:05.187Z"
     },
     {
       "id": "17",
@@ -221,9 +217,8 @@
       "price": 799.99,
       "stock": 15,
       "categoryId": 6,
-      "imageUrl": "",
-      "createdAt": "2024-05-25 00:00:00",
-      "modifiedAt": "2024-05-25 00:00:00"
+      "imageUrl": "https://m.media-amazon.com/images/I/71WBLfdThRL._AC_SL1500_.jpg",
+      "modifiedAt": "2024-05-30T05:49:39.350Z"
     },
     {
       "id": "18",
@@ -232,9 +227,8 @@
       "price": 59.99,
       "stock": 35,
       "categoryId": 7,
-      "imageUrl": "",
-      "createdAt": "2024-05-25 00:00:00",
-      "modifiedAt": "2024-05-25 00:00:00"
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9Bk9nLGLbP6vmr9sYqYsXHIsdbYOuYhTdcw&s",
+      "modifiedAt": "2024-05-30T05:50:04.395Z"
     },
     {
       "id": "19",
@@ -243,9 +237,8 @@
       "price": 14.99,
       "stock": 50,
       "categoryId": 8,
-      "imageUrl": "",
-      "createdAt": "2024-05-25 00:00:00",
-      "modifiedAt": "2024-05-25 00:00:00"
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7kyV2MAVgvmfLRa-X9W6xLFY81_SYBrIklg&s",
+      "modifiedAt": "2024-05-30T05:50:34.332Z"
     },
     {
       "id": "20",
@@ -254,9 +247,8 @@
       "price": 24.99,
       "stock": 40,
       "categoryId": 9,
-      "imageUrl": "",
-      "createdAt": "2024-05-25 00:00:00",
-      "modifiedAt": "2024-05-25 00:00:00"
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_8sqEo0CBnDduakYqvk9ZPbyFPHlo2w76rA&s",
+      "modifiedAt": "2024-05-30T05:51:06.987Z"
     },
     {
       "id": "21",
@@ -265,9 +257,8 @@
       "price": 79.99,
       "stock": 40,
       "categoryId": 1,
-      "imageUrl": "",
-      "createdAt": "2024-05-25 00:00:00",
-      "modifiedAt": "2024-05-25 00:00:00"
+      "imageUrl": "https://m.media-amazon.com/images/I/61XUdIeut0L.jpg",
+      "modifiedAt": "2024-05-30T05:51:41.051Z"
     },
     {
       "id": "22",
@@ -276,9 +267,8 @@
       "price": 29.99,
       "stock": 25,
       "categoryId": 5,
-      "imageUrl": "",
-      "createdAt": "2024-05-25 00:00:00",
-      "modifiedAt": "2024-05-25 00:00:00"
+      "imageUrl": "https://i5.walmartimages.com/seo/Everyday-Essentials-All-Purpose-1-2-Inch-High-Density-Foam-Exercise-Yoga-Mat-Anti-Tear-with-Carrying-Strap-Blue_f4b717d9-6dc1-4198-b0f8-3e88d8a2d09f.02e132731c4b639cee0057c099b45f37.jpeg",
+      "modifiedAt": "2024-05-30T05:52:09.317Z"
     },
     {
       "id": "23",
@@ -287,9 +277,8 @@
       "price": 299.99,
       "stock": 15,
       "categoryId": 3,
-      "imageUrl": "",
-      "createdAt": "2024-05-25 00:00:00",
-      "modifiedAt": "2024-05-25 00:00:00"
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTC-sHaG5VYdlH_dHKsGdxQYU0HKA8qRcLRBw&s",
+      "modifiedAt": "2024-05-30T05:52:47.743Z"
     },
     {
       "id": "24",
@@ -298,9 +287,8 @@
       "price": 24.99,
       "stock": 30,
       "categoryId": 4,
-      "imageUrl": "",
-      "createdAt": "2024-05-25 00:00:00",
-      "modifiedAt": "2024-05-25 00:00:00"
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkTziDsrKZCpMGxb_IwJs6YTwBqrFLLvSyVg&s",
+      "modifiedAt": "2024-05-30T05:53:29.245Z"
     },
     {
       "id": "25",
@@ -309,9 +297,8 @@
       "price": 149.99,
       "stock": 20,
       "categoryId": 5,
-      "imageUrl": "",
-      "createdAt": "2024-05-25 00:00:00",
-      "modifiedAt": "2024-05-25 00:00:00"
+      "imageUrl": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/93/2418151/1.jpg?9771",
+      "modifiedAt": "2024-05-30T05:53:59.562Z"
     },
     {
       "id": "26",
@@ -320,9 +307,8 @@
       "price": 149.99,
       "stock": 10,
       "categoryId": 6,
-      "imageUrl": "",
-      "createdAt": "2024-05-25 00:00:00",
-      "modifiedAt": "2024-05-25 00:00:00"
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIhZ3LapbhewoLqWBs3MDEjREb1MU0dNdp5w&s",
+      "modifiedAt": "2024-05-30T05:54:33.506Z"
     },
     {
       "id": "27",
@@ -331,9 +317,8 @@
       "price": 39.99,
       "stock": 50,
       "categoryId": 7,
-      "imageUrl": "",
-      "createdAt": "2024-05-25 00:00:00",
-      "modifiedAt": "2024-05-25 00:00:00"
+      "imageUrl": "https://sdcdn.io/mac/kw/mac_sku_ST2N01_1x1_0.png?width=1080&height=1080",
+      "modifiedAt": "2024-05-30T05:55:27.004Z"
     },
     {
       "id": "28",
@@ -342,9 +327,8 @@
       "price": 12.99,
       "stock": 45,
       "categoryId": 8,
-      "imageUrl": "",
-      "createdAt": "2024-05-25 00:00:00",
-      "modifiedAt": "2024-05-25 00:00:00"
+      "imageUrl": "https://m.media-amazon.com/images/I/711c8xpkXBL._AC_UF894,1000_QL80_.jpg",
+      "modifiedAt": "2024-05-30T05:56:06.014Z"
     },
     {
       "id": "29",
@@ -353,9 +337,8 @@
       "price": 69.99,
       "stock": 30,
       "categoryId": 9,
-      "imageUrl": "",
-      "createdAt": "2024-05-25 00:00:00",
-      "modifiedAt": "2024-05-25 00:00:00"
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3garRX0m8cSufE26p0jNMf3EvJkHfISlOPw&s",
+      "modifiedAt": "2024-05-30T05:56:48.200Z"
     },
     {
       "id": "30",
@@ -364,9 +347,8 @@
       "price": 34.99,
       "stock": 35,
       "categoryId": 10,
-      "imageUrl": "",
-      "createdAt": "2024-05-25 00:00:00",
-      "modifiedAt": "2024-05-25 00:00:00"
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHvNSjysWbQGTioaMOeGFNm-YqvBo-f0_O6w&s",
+      "modifiedAt": "2024-05-30T05:57:20.708Z"
     },
     {
       "id": "31",
@@ -375,9 +357,8 @@
       "price": 129.99,
       "stock": 25,
       "categoryId": 1,
-      "imageUrl": "",
-      "createdAt": "2024-05-25 00:00:00",
-      "modifiedAt": "2024-05-25 00:00:00"
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8szRe1IUNBZizhTLqh3TtOx03qdFYB6XASA&s",
+      "modifiedAt": "2024-05-30T05:57:52.047Z"
     },
     {
       "id": "32",
@@ -386,9 +367,8 @@
       "price": 49.99,
       "stock": 30,
       "categoryId": 2,
-      "imageUrl": "",
-      "createdAt": "2024-05-25 00:00:00",
-      "modifiedAt": "2024-05-25 00:00:00"
+      "imageUrl": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/31/0486221/1.jpg?2770",
+      "modifiedAt": "2024-05-30T05:58:28.625Z"
     },
     {
       "id": "33",
@@ -397,9 +377,8 @@
       "price": 59.99,
       "stock": 15,
       "categoryId": 3,
-      "imageUrl": "",
-      "createdAt": "2024-05-25 00:00:00",
-      "modifiedAt": "2024-05-25 00:00:00"
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHyNW1zP_RHCw0tHYhLFMpdSIHc04elyUsaA&s",
+      "modifiedAt": "2024-05-30T05:58:56.279Z"
     },
     {
       "id": "34",
@@ -408,9 +387,8 @@
       "price": 18.99,
       "stock": 40,
       "categoryId": 4,
-      "imageUrl": "",
-      "createdAt": "2024-05-25 00:00:00",
-      "modifiedAt": "2024-05-25 00:00:00"
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNXTXz8faEasTKoi5XC3PbaQ5x5lo_dumHng&s",
+      "modifiedAt": "2024-05-30T05:59:31.638Z"
     },
     {
       "id": "35",
@@ -419,9 +397,8 @@
       "price": 129.99,
       "stock": 20,
       "categoryId": 5,
-      "imageUrl": "",
-      "createdAt": "2024-05-25 00:00:00",
-      "modifiedAt": "2024-05-25 00:00:00"
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2NSkKtbrf1O3QjPaRpIexHmFhDsHCWPZdcQ&s",
+      "modifiedAt": "2024-05-30T06:00:01.354Z"
     },
     {
       "id": "36",
@@ -430,9 +407,8 @@
       "price": 79.99,
       "stock": 10,
       "categoryId": 6,
-      "imageUrl": "",
-      "createdAt": "2024-05-25 00:00:00",
-      "modifiedAt": "2024-05-25 00:00:00"
+      "imageUrl": "https://m.media-amazon.com/images/I/71IYyDFg3BL._AC_UF894,1000_QL80_.jpg",
+      "modifiedAt": "2024-05-30T06:00:31.923Z"
     },
     {
       "id": "37",
@@ -441,9 +417,8 @@
       "price": 69.99,
       "stock": 25,
       "categoryId": 7,
-      "imageUrl": "",
-      "createdAt": "2024-05-25 00:00:00",
-      "modifiedAt": "2024-05-25 00:00:00"
+      "imageUrl": "https://image.kilimall.com/kenya/shop/store/goods/8607/2023/03/1680185846549bb0e18a6329d45b1ba0b70204eee420d.jpg",
+      "modifiedAt": "2024-05-30T06:01:06.706Z"
     },
     {
       "id": "38",
@@ -452,9 +427,8 @@
       "price": 14.99,
       "stock": 50,
       "categoryId": 8,
-      "imageUrl": "",
-      "createdAt": "2024-05-25 00:00:00",
-      "modifiedAt": "2024-05-25 00:00:00"
+      "imageUrl": "https://m.media-amazon.com/images/I/71mbRemsuEL._SL1500_.jpg",
+      "modifiedAt": "2024-05-30T07:59:31.321Z"
     },
     {
       "id": "39",
@@ -463,9 +437,8 @@
       "price": 9.99,
       "stock": 30,
       "categoryId": 9,
-      "imageUrl": "",
-      "createdAt": "2024-05-25 00:00:00",
-      "modifiedAt": "2024-05-25 00:00:00"
+      "imageUrl": "https://m.media-amazon.com/images/I/615uFapllyL.jpg",
+      "modifiedAt": "2024-05-30T08:04:11.475Z"
     },
     {
       "id": "40",
@@ -474,9 +447,8 @@
       "price": 22.99,
       "stock": 35,
       "categoryId": 10,
-      "imageUrl": "",
-      "createdAt": "2024-05-25 00:00:00",
-      "modifiedAt": "2024-05-25 00:00:00"
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOoW-Y90pAU3elPgl0BWH97pAEdmvUhIxXHw&s",
+      "modifiedAt": "2024-05-30T08:04:48.963Z"
     },
     {
       "id": "41",
@@ -485,9 +457,8 @@
       "price": 49.99,
       "stock": 30,
       "categoryId": 1,
-      "imageUrl": "",
-      "createdAt": "2024-05-25 00:00:00",
-      "modifiedAt": "2024-05-25 00:00:00"
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6Vk3C1p33oM4Ue1yXZKbw9kEiXQLCDNDrKA&s",
+      "modifiedAt": "2024-05-30T08:06:15.857Z"
     },
     {
       "id": "42",
@@ -496,9 +467,8 @@
       "price": 39.99,
       "stock": 40,
       "categoryId": 2,
-      "imageUrl": "",
-      "createdAt": "2024-05-25 00:00:00",
-      "modifiedAt": "2024-05-25 00:00:00"
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5REVMm7QCOhi0yV7yPOgK7pgtjjcjBzXIkQ&s",
+      "modifiedAt": "2024-05-30T08:06:55.208Z"
     },
     {
       "id": "43",
@@ -507,9 +477,8 @@
       "price": 79.99,
       "stock": 20,
       "categoryId": 3,
-      "imageUrl": "",
-      "createdAt": "2024-05-25 00:00:00",
-      "modifiedAt": "2024-05-25 00:00:00"
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_e67XwCh6f5qlxnvtfqeQ0pTGTs3DR0CPKg&s",
+      "modifiedAt": "2024-05-30T08:07:27.930Z"
     },
     {
       "id": "44",
@@ -518,9 +487,8 @@
       "price": 21.99,
       "stock": 25,
       "categoryId": 4,
-      "imageUrl": "",
-      "createdAt": "2024-05-25 00:00:00",
-      "modifiedAt": "2024-05-25 00:00:00"
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzbO080irhCtK1RnYJpzAS9QoyQRm50bTE6Q&s",
+      "modifiedAt": "2024-05-30T08:08:12.341Z"
     },
     {
       "id": "45",
@@ -529,9 +497,8 @@
       "price": 69.99,
       "stock": 15,
       "categoryId": 5,
-      "imageUrl": "",
-      "createdAt": "2024-05-25 00:00:00",
-      "modifiedAt": "2024-05-25 00:00:00"
+      "imageUrl": "https://m.media-amazon.com/images/I/71uCg26TTiL._AC_SL1500_.jpg",
+      "modifiedAt": "2024-05-30T08:08:50.831Z"
     },
     {
       "id": "46",
@@ -540,9 +507,8 @@
       "price": 29.99,
       "stock": 10,
       "categoryId": 6,
-      "imageUrl": "",
-      "createdAt": "2024-05-25 00:00:00",
-      "modifiedAt": "2024-05-25 00:00:00"
+      "imageUrl": "https://cdn.britannica.com/88/212888-050-6795342C/study-lamp-electrical-cord.jpg",
+      "modifiedAt": "2024-05-30T08:09:34.118Z"
     },
     {
       "id": "47",
@@ -551,9 +517,8 @@
       "price": 34.99,
       "stock": 35,
       "categoryId": 7,
-      "imageUrl": "",
-      "createdAt": "2024-05-25 00:00:00",
-      "modifiedAt": "2024-05-25 00:00:00"
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB3WcJqRCB7Z6Tpl2Z3D_QCMPffgM7rh0tlg&s",
+      "modifiedAt": "2024-05-30T08:10:07.647Z"
     },
     {
       "id": "48",
@@ -562,9 +527,8 @@
       "price": 12.99,
       "stock": 50,
       "categoryId": 8,
-      "imageUrl": "",
-      "createdAt": "2024-05-25 00:00:00",
-      "modifiedAt": "2024-05-25 00:00:00"
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6ybNGR6UDyVw8uS-LQgHzep6Hti2wKYhkiA&s",
+      "modifiedAt": "2024-05-30T08:10:43.599Z"
     },
     {
       "id": "49",
@@ -573,9 +537,8 @@
       "price": 19.99,
       "stock": 25,
       "categoryId": 9,
-      "imageUrl": "",
-      "createdAt": "2024-05-25 00:00:00",
-      "modifiedAt": "2024-05-25 00:00:00"
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyBHMn8SVZy3gCqhX3CgCT8RDnkfAjO8Yq8Q&s",
+      "modifiedAt": "2024-05-30T08:11:13.197Z"
     },
     {
       "id": "50",
@@ -584,9 +547,8 @@
       "price": 16.99,
       "stock": 30,
       "categoryId": 10,
-      "imageUrl": "",
-      "createdAt": "2024-05-25 00:00:00",
-      "modifiedAt": "2024-05-25 00:00:00"
+      "imageUrl": "https://m.media-amazon.com/images/I/81ydmVIf3VL._AC_UF894,1000_QL80_.jpg",
+      "modifiedAt": "2024-05-30T08:12:13.536Z"
     },
     {
       "id": "51",
@@ -595,9 +557,8 @@
       "price": 24.99,
       "stock": 40,
       "categoryId": 1,
-      "imageUrl": "",
-      "createdAt": "2024-05-25 00:00:00",
-      "modifiedAt": "2024-05-25 00:00:00"
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlolQOaL9giYm92Hh6LZVYE7CZFclYCY7ZyQ&s",
+      "modifiedAt": "2024-05-30T08:13:20.934Z"
     },
     {
       "id": "52",
@@ -606,9 +567,8 @@
       "price": 14.99,
       "stock": 50,
       "categoryId": 2,
-      "imageUrl": "",
-      "createdAt": "2024-05-25 00:00:00",
-      "modifiedAt": "2024-05-25 00:00:00"
+      "imageUrl": "https://www.mrporter.com/variants/images/3633577411310824/in/w2000_q60.jpg",
+      "modifiedAt": "2024-05-30T08:13:56.881Z"
     },
     {
       "id": "53",
@@ -617,9 +577,8 @@
       "price": 49.99,
       "stock": 30,
       "categoryId": 3,
-      "imageUrl": "",
-      "createdAt": "2024-05-25 00:00:00",
-      "modifiedAt": "2024-05-25 00:00:00"
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRUuuIq3ZEJbyldAAPpwkLycJmAD7XvqjF1Q&s",
+      "modifiedAt": "2024-05-30T08:14:28.869Z"
     },
     {
       "id": "54",
@@ -628,9 +587,8 @@
       "price": 26.99,
       "stock": 35,
       "categoryId": 4,
-      "imageUrl": "",
-      "createdAt": "2024-05-25 00:00:00",
-      "modifiedAt": "2024-05-25 00:00:00"
+      "imageUrl": "https://m.media-amazon.com/images/I/41kY9ohjWWS.jpg",
+      "modifiedAt": "2024-05-30T08:15:06.637Z"
     },
     {
       "id": "55",
@@ -639,9 +597,8 @@
       "price": 19.99,
       "stock": 20,
       "categoryId": 5,
-      "imageUrl": "",
-      "createdAt": "2024-05-25 00:00:00",
-      "modifiedAt": "2024-05-25 00:00:00"
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOUm_-YT6iGZ1vnzVkQrF7sLB8Ba_RshMtFA&s",
+      "modifiedAt": "2024-05-30T08:15:36.229Z"
     },
     {
       "id": "56",
@@ -650,9 +607,8 @@
       "price": 18.99,
       "stock": 25,
       "categoryId": 6,
-      "imageUrl": "",
-      "createdAt": "2024-05-25 00:00:00",
-      "modifiedAt": "2024-05-25 00:00:00"
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyZDzNzlnJsJe6aA1y0HiPL-6P4H_2RsGf5A&s",
+      "modifiedAt": "2024-05-30T08:16:07.699Z"
     },
     {
       "id": "57",
@@ -661,9 +617,8 @@
       "price": 29.99,
       "stock": 20,
       "categoryId": 7,
-      "imageUrl": "",
-      "createdAt": "2024-05-25 00:00:00",
-      "modifiedAt": "2024-05-25 00:00:00"
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRveJbP_ML2PGg4h4VZ6NjSCaU9hg9Z2r0-DQ&s",
+      "modifiedAt": "2024-05-30T08:16:58.918Z"
     },
     {
       "id": "58",
@@ -672,9 +627,8 @@
       "price": 9.99,
       "stock": 60,
       "categoryId": 8,
-      "imageUrl": "",
-      "createdAt": "2024-05-25 00:00:00",
-      "modifiedAt": "2024-05-25 00:00:00"
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjqV9-k7ZI73P5BUWcqUtC2MmDw-erBntyyw&s",
+      "modifiedAt": "2024-05-30T08:17:29.767Z"
     },
     {
       "id": "59",
@@ -683,9 +637,8 @@
       "price": 14.99,
       "stock": 30,
       "categoryId": 9,
-      "imageUrl": "",
-      "createdAt": "2024-05-25 00:00:00",
-      "modifiedAt": "2024-05-25 00:00:00"
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ47IM-vq38ct1C_gGt549byQ7c5zxvS4-Abg&s",
+      "modifiedAt": "2024-05-30T08:18:02.159Z"
     },
     {
       "id": "60",
@@ -694,9 +647,8 @@
       "price": 27.99,
       "stock": 25,
       "categoryId": 10,
-      "imageUrl": "",
-      "createdAt": "2024-05-25 00:00:00",
-      "modifiedAt": "2024-05-25 00:00:00"
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNw2_hFydHsUN5_E8nr3qVC53CsJzptms39g&s",
+      "modifiedAt": "2024-05-30T08:18:29.854Z"
     },
     {
       "id": "61",
