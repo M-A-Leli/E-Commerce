@@ -17,9 +17,10 @@ export class App {
     }
 
     private async init(): Promise<void> {
+        this.setupEventListeners();
         await this.fetchCartItems();
         this.displayCartItems(this.cartItems);
-        this.displayCartItemsCount(); //!
+        this.displayCartItemsCount();
     }
 
     private async fetchCartItems(): Promise<void> {
@@ -78,19 +79,19 @@ export class App {
 
             // Create unit price cell
             const unitPriceCell = document.createElement('td');
-            unitPriceCell.textContent = `$${cartItem.unitPrice}`; // ! toFixed(2)
+            unitPriceCell.textContent = `$${cartItem.unitPrice.toFixed(2)}`;
             row.appendChild(unitPriceCell);
 
             // Create quantity cell with buttons
             const quantityCell = document.createElement('td');
 
             const decreaseButton = document.createElement('button');
-            decreaseButton.innerHTML = '<i class="fa-solid fa-plus"></i>';
+            decreaseButton.classList.add('decrease-btn');
+            decreaseButton.innerHTML = '<i class="fa-solid fa-minus"></i>';
             decreaseButton.dataset.id = "" + cartItem.id;
             decreaseButton.addEventListener('click', () => {
-                console.log('clicked');
                 if (cartItem.id) {
-                    console.log('clicked in');
+                    console.log('clicked');
                     this.updateQuantity(cartItem.id, -1);
                 }
             });
@@ -102,13 +103,12 @@ export class App {
             quantityCell.appendChild(quantitySpan);
 
             const increaseButton = document.createElement('button');
-            increaseButton.innerHTML = '<i class="fa-solid fa-minus"></i>';
+            increaseButton.classList.add('increase-btn');
+            increaseButton.innerHTML = '<i class="fa-solid fa-plus"></i>';
             increaseButton.dataset.id = "" + cartItem.id;
             increaseButton.addEventListener('click', () => {
-                console.log('clicked');
                 if (cartItem.id) {
-                    console.log('clicked in');
-                    this.updateQuantity(cartItem.id, -1);
+                    this.updateQuantity(cartItem.id, 1);
                 }
             });
             quantityCell.appendChild(increaseButton);
@@ -118,7 +118,7 @@ export class App {
             // Create total price cell
             const totalPriceCell = document.createElement('td');
             totalPriceCell.id = `totalPrice-${cartItem.id}`;
-            totalPriceCell.textContent = `$${cartItem.totalPrice}`; // ! toFixed(2)
+            totalPriceCell.textContent = `$${cartItem.totalPrice.toFixed(2)}`;
             row.appendChild(totalPriceCell);
 
             // Actions cell
@@ -129,10 +129,8 @@ export class App {
             deleteButton.classList.add('remove-item-btn');
             deleteButton.dataset.id = "" + cartItem.id;
             deleteButton.addEventListener('click', () => {
-                console.log('clicked');
                 if (cartItem.id) {
-                    console.log('clicked in');
-                    this.removeFromCart(cartItem.id);
+                    this.showDeleteModal(cartItem.id);
                 }
             });
             actionsCell.appendChild(deleteButton);
@@ -145,15 +143,17 @@ export class App {
     }
 
     private async updateQuantity(id: string, change: number): Promise<void> {
-        const quantitySpan = document.getElementById(`quantity-${id}`) as HTMLSpanElement;
-
-        let newQuantity = parseInt("" + quantitySpan.textContent) + change; // ! ""+
-
-        if (newQuantity < 1) {
-            newQuantity = 1; // Ensure the quantity is at least 1
-        }
-
         try {
+            const quantitySpan = document.getElementById(`quantity-${id}`) as HTMLSpanElement;
+    
+            let newQuantity = parseInt("" + quantitySpan.textContent) + change; // ! ""+
+``
+            if (newQuantity < 1) {
+                newQuantity = 1 ; // Ensure the quantity is at least 1
+            } else {
+                newQuantity += change - 1;
+            }
+
             const response = await fetch(`http://localhost:3000/cartItems/${id}`, {
                 method: 'PATCH',
                 headers: {
@@ -161,7 +161,7 @@ export class App {
                 },
                 body: JSON.stringify({ quantity: newQuantity })
             });
-
+            
             if (!response.ok) {
                 throw new Error('Failed to update cart item quantity');
             }
@@ -178,12 +178,12 @@ export class App {
     private updateTotalPrice(id: string, unitPrice: number, quantity: number): void {
         const totalPrice = unitPrice * quantity;
         const totalPriceElement = document.getElementById(`totalPrice-${id}`) as HTMLTableCellElement;
-        totalPriceElement.textContent = `$${totalPrice}`; // ! toFixed(2)
+        totalPriceElement.textContent = `$${totalPrice.toFixed(2)}`;
     }
 
     private async removeFromCart(id: string): Promise<void> {
         try {
-            const response = await fetch(`http://localhost:3000/cartItem/${id}`, {
+            const response = await fetch(`http://localhost:3000/cartItems/${id}`, {
                 method: 'DELETE'
             });
 
@@ -192,6 +192,7 @@ export class App {
             }
 
             this.cartItems = this.cartItems.filter(cartItem => cartItem.id !== id);
+            this.displayCartItemsCount();
             this.displayCartItems(this.cartItems);
         } catch (error) {
             // console.error('Error deleting cart item: ', error);
@@ -199,18 +200,35 @@ export class App {
         }
     }
 
-    private showOrderCreatedModal(): void {
-        const modal = document.getElementById('order-created-modal') as HTMLDivElement;
+    private showDeleteModal(productId: string): void {
+        const modal = document.getElementById('delete-modal') as HTMLDivElement;
         modal.style.display = 'block';
 
-        const closeButton = document.getElementById('close-order-created-modal-btn') as HTMLElement;
+        const confirmButton = document.getElementById('confirm-delete-btn') as HTMLButtonElement;
+        confirmButton.addEventListener('click', () => {
+            this.removeFromCart(productId);
+            this.closeDeleteModal();
+            this.displayCartItemsCount();
+            this.displayCartItems(this.cartItems);
+        });
 
-        closeButton.onclick = () => this.closeOrderCreatedModal();
+        const closeButton = document.getElementById('close-delete-modal-btn') as HTMLElement;
+        const cancelButton = document.getElementById('cancel-delete-btn') as HTMLButtonElement;
+
+        closeButton.onclick = () => this.closeDeleteModal();
+        cancelButton.onclick = () => this.closeDeleteModal();
     }
 
-    private closeOrderCreatedModal(): void {
-        const modal = document.getElementById('order-created-modal') as HTMLDivElement;
+    private closeDeleteModal(): void {
+        const modal = document.getElementById('delete-modal') as HTMLDivElement;
         modal.style.display = 'none';
+    }
+
+    private setupEventListeners(): void {
+        const backBtn = document.getElementById('back-btn') as HTMLButtonElement;
+        backBtn?.addEventListener('click', () => {
+            window.location.href = './products.html'
+        });
     }
 }
 

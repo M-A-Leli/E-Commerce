@@ -10,13 +10,17 @@
 <body>
     <section id="main">
         <div id="header">
-            <button id="back-btn"><i class="fa-solid fa-backward"></i></button>
+            <div id="button-container">
+                <button id="back-btn"><i class="fa-solid fa-backward"></i></button>
+            </div>
             <div id="heading">
                 <h1>cart</h1>
             </div>
-            <a href="#"><i class="fa-solid fa-cart-shopping"></i><span id="cart-count"></span></a>
+            <div id="cart-container">
+                <a href="#"><i class="fa-solid fa-cart-shopping"></i><span id="cart-count"></span></a>
+            </div>
         </div>
-        <div class="container">
+        <div id="cart-item-container">
             <table id="cart-items">
                 <thead>
                     <tr>
@@ -34,10 +38,15 @@
         </div>
     </section>
 
-    <div id="add-to-cart-modal" class="modal" style="display: none">
+    <!-- Delete confirmation modal -->
+    <div id="delete-modal" class="modal" style="display: none">
         <div class="modal-content">
-            <span class="close" id="close-add-to-cart-modal-btn"><i class="fa-solid fa-circle-xmark"></i></span>
-            <p>product added to cart</p>
+            <span class="close" id="close-delete-modal-btn"><i class="fa-solid fa-circle-xmark"></i></span>
+            <p>Are you sure you want to delete this cart item?</p>
+            <div class="buttons">
+                <button id="confirm-delete-btn">Yes</button>
+                <button id="cancel-delete-btn">No</button>
+            </div>
         </div>
     </div>
 

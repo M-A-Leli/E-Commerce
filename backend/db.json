@@ -1104,48 +1104,12 @@
   ],
   "cartItems": [
     {
-      "id": "101",
-      "productId": 61,
-      "productName": "External Hard Drive",
-      "unitPrice": 89.99,
-      "quantity": 1,
-      "totalPrice": 89.99,
-      "userId": "1"
-    },
-    {
-      "id": "102",
-      "productId": 62,
-      "productName": "Sweater",
-      "unitPrice": 34.99,
-      "quantity": 1,
-      "totalPrice": 34.99,
-      "userId": "1"
-    },
-    {
-      "id": "103",
-      "productId": 63,
-      "productName": "Air Fryer",
-      "unitPrice": 79.99,
-      "quantity": 1,
-      "totalPrice": 79.99,
-      "userId": "1"
-    },
-    {
       "id": "104",
       "productId": 64,
       "productName": "Historical Fiction Book",
       "unitPrice": 22.99,
-      "quantity": 1,
+      "quantity": 3,
       "totalPrice": 22.99,
-      "userId": "1"
-    },
-    {
-      "id": "105",
-      "productId": 65,
-      "productName": "Hiking Boots",
-      "unitPrice": 69.99,
-      "quantity": 1,
-      "totalPrice": 69.99,
       "userId": "1"
     },
     {
@@ -1153,53 +1117,71 @@
       "productId": 66,
       "productName": "Desk Lamp",
       "unitPrice": 27.99,
-      "quantity": 1,
+      "quantity": 3,
       "totalPrice": 27.99,
       "userId": "1"
     },
     {
       "id": "107",
-      "productId": 67,
-      "productName": "Eyeshadow Palette",
-      "unitPrice": 44.99,
-      "quantity": 1,
-      "totalPrice": 44.99,
-      "userId": "1"
-    },
-    {
-      "id": "108",
-      "productId": 68,
-      "productName": "Gourmet Coffee Sampler",
-      "unitPrice": 16.99,
-      "quantity": 1,
-      "totalPrice": 16.99,
+      "productId": "1",
+      "productName": "Smartphone X",
+      "unitPrice": 799.99,
+      "quantity": 4,
+      "totalPrice": 799.99,
       "userId": "1"
     },
     {
       "id": "109",
-      "productId": 69,
-      "productName": "Cat Scratching Post",
-      "unitPrice": 19.99,
-      "quantity": 1,
-      "totalPrice": 19.99,
+      "productId": "3",
+      "productName": "Gardening Toolkit",
+      "unitPrice": 49.99,
+      "quantity": 3,
+      "totalPrice": 49.99,
       "userId": "1"
     },
     {
       "id": "110",
-      "productId": 70,
-      "productName": "Card Game: Trivia Challenge",
-      "unitPrice": 14.99,
-      "quantity": 1,
-      "totalPrice": 14.99,
+      "productId": "4",
+      "productName": "Sci-Fi Novel Collection",
+      "unitPrice": 29.99,
+      "quantity": 3,
+      "totalPrice": 29.99,
       "userId": "1"
     },
     {
-      "id": "111",
-      "productId": "1",
-      "productName": "Smartphone X",
-      "unitPrice": 799.99,
+      "id": "112",
+      "productId": "6",
+      "productName": "Modern Coffee Table",
+      "unitPrice": 129.99,
+      "quantity": 3,
+      "totalPrice": 129.99,
+      "userId": "1"
+    },
+    {
+      "id": "113",
+      "productId": "2",
+      "productName": "Mens Denim Jacket",
+      "unitPrice": 59.99,
+      "quantity": 5,
+      "totalPrice": 59.99,
+      "userId": "1"
+    },
+    {
+      "id": "114",
+      "productId": "3",
+      "productName": "Gardening Toolkit",
+      "unitPrice": 49.99,
       "quantity": 1,
-      "totalPrice": 799.99,
+      "totalPrice": 49.99,
+      "userId": "1"
+    },
+    {
+      "id": "115",
+      "productId": "4",
+      "productName": "Sci-Fi Novel Collection",
+      "unitPrice": 29.99,
+      "quantity": 1,
+      "totalPrice": 29.99,
       "userId": "1"
     }
   ]
