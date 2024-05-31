@@ -12,10 +12,22 @@ interface Product {
     inStock: () => string;
 }
 
+// Define cart Item interface
+interface CartItem {
+    id: string,
+    productId: number,
+    productName: string,
+    unitPrice: number,
+    quantity: number,
+    totalPrice: number,
+    userId: string
+}
+
 export class App {
     private relatedProducts: Product[] = [];
     private product!: Product;
     private categories: { id: number; name: string; }[] = [];
+    private cartItems: CartItem[] = [];
 
     constructor() {
         document.addEventListener('DOMContentLoaded', () => this.init());
@@ -28,6 +40,7 @@ export class App {
         if (productId) {
             await this.fetchProductById(parseInt(productId));
             await this.fetchRelatedProducts();
+            await this.fetchCartItems();
         } else {
             console.error('Product ID not found in URL');
         }
@@ -93,6 +106,30 @@ export class App {
 
         const inOrOutOfStock = product.inStock().split(' ').join('-');
 
+        const moreInfoBtn = document.createElement('button');
+        moreInfoBtn.textContent = 'more info';
+        moreInfoBtn.classList.add('more-info-btn');
+        moreInfoBtn.dataset.id = "" + product.id;
+        moreInfoBtn.addEventListener('click', () => {
+            window.location.href = `./product.html?id=${product.id}`;
+        });
+
+        const addToCartBtn = document.createElement('button');
+        addToCartBtn.textContent = 'add to cart';
+        addToCartBtn.classList.add('add-to-cart-btn');
+        addToCartBtn.dataset.id = "" + product.id;
+        addToCartBtn.addEventListener('click', () => {
+            this.addToCart(product);
+            this.displayCartItemsCount();
+            this.showAddedToCartModal();
+        });
+
+        const buttonsDiv = document.createElement('div');
+        buttonsDiv.classList.add('buttons');
+
+        buttonsDiv.appendChild(moreInfoBtn);
+        buttonsDiv.appendChild(addToCartBtn);
+
         const detailsDiv = document.createElement('div');
         detailsDiv.className = 'product-details';
         detailsDiv.innerHTML = `
@@ -100,12 +137,13 @@ export class App {
             <p class="description">${product.description}</p>
             <p class="price">$${product.price.toFixed(2)}</p>
             <p class="${inOrOutOfStock}">${product.inStock()}</p>
-            <button class="more-info-btn" data-id="${product.id}">More Info</button>
         `;
 
-        detailsDiv.querySelector('.more-info-btn')?.addEventListener('click', () => {
-            window.location.href = `./product.html?id=${product.id}`;
-        });
+        // detailsDiv.querySelector('.more-info-btn')?.addEventListener('click', () => {
+        //     window.location.href = `./product.html?id=${product.id}`;
+        // });
+
+        detailsDiv.appendChild(buttonsDiv);
 
         card.appendChild(imgDiv);
         card.appendChild(detailsDiv);
@@ -143,6 +181,100 @@ export class App {
             const card = this.createProductCard(product);
             relatedProductsDiv.appendChild(card);
         });
+    }
+
+    private async fetchCartItems(): Promise<void> {
+        try {
+            const response = await fetch(`http://localhost:3000/cartItems/`);
+
+            if (!response.ok) {
+                throw new Error('Failed to fetch cart items for this user')
+            }
+
+            const cartItems: CartItem[] = await response.json();
+
+            if (Array.isArray(cartItems)) {
+                this.cartItems = cartItems.map((cartItem: CartItem) => ({
+                    id: cartItem.id,
+                    productId: cartItem.productId,
+                    productName: cartItem.productName,
+                    unitPrice: cartItem.unitPrice,
+                    quantity: cartItem.quantity,
+                    totalPrice: cartItem.totalPrice,
+                    userId: cartItem.userId
+                }));
+                
+                //! this.displayCartItems(this.cartItems);
+            } else {
+                throw new Error('Invalid cart items data format');
+            }
+        } catch (error) {
+            console.log('Error fetching cart items: ', error);
+        }
+    }
+
+    private displayCartItemsCount(): void {
+        const itemCount = this.cartItems.length;
+        const cartCountSpan = document.getElementById('cart-count') as HTMLSpanElement;
+
+        if(itemCount) {
+            cartCountSpan.textContent = itemCount.toString();
+        } else {
+            cartCountSpan.textContent = "0";
+        }
+    }
+
+    private async addToCart(product: Product): Promise<CartItem> {
+        try {
+            const cartItem = {
+                id: "" + (parseInt(this.cartItems[this.cartItems.length - 1].id) + 1),
+                productId: product.id,
+                productName: product.name,
+                unitPrice: product.price,
+                quantity: 1, // Default quantity
+                totalPrice: product.price,
+                userId: '1'
+            };
+
+            const response = await fetch(`http://localhost:3000/cartItems`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(cartItem)
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to create cart item');
+            }
+
+            const createdCartItem: CartItem = await response.json();
+
+            if (createdCartItem && typeof createdCartItem === 'object') {
+                this.cartItems.push(cartItem);
+                this.displayCartItemsCount();
+                return createdCartItem;
+            } else {
+                throw new Error('Invalid cartItem data format');
+            }
+        } catch (error) {
+            // console.error('Error creating product: ', error);
+            throw error;
+        }
+    }
+
+    private showAddedToCartModal(): void {
+        const modal = document.getElementById('add-to-cart-modal') as HTMLDivElement;
+        modal.style.display = 'block';
+
+        const closeButton = document.getElementById('close-add-to-cart-modal-btn') as HTMLElement;
+
+        closeButton.onclick = () => this.closeAddedToCartModal();
+    }
+
+    private closeAddedToCartModal(): void {
+        const modal = document.getElementById('add-to-cart-modal') as HTMLDivElement;
+        modal.style.display = 'none';
     }
 }
 
