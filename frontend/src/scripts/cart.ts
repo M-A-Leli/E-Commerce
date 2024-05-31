@@ -1,6 +1,6 @@
 // Define cart Item interface
 interface CartItem {
-    cartItemId: string,
+    id: string,
     productId: string,
     productName: string,
     unitPrice: number,
@@ -34,7 +34,7 @@ export class App {
 
             if (Array.isArray(cartItems)) {
                 this.cartItems = cartItems.map((cartItem: CartItem) => ({
-                    cartItemId: cartItem.cartItemId,
+                    id: cartItem.id,
                     productId: cartItem.productId,
                     productName: cartItem.productName,
                     unitPrice: cartItem.unitPrice,
@@ -42,7 +42,7 @@ export class App {
                     totalPrice: cartItem.totalPrice,
                     userId: cartItem.userId
                 }));
-                
+
                 //! this.displayCartItems(this.cartItems);
             } else {
                 throw new Error('Invalid cart items data format');
@@ -66,104 +66,124 @@ export class App {
     private displayCartItems(cartItems: CartItem[]): void {
         const cartTableBody = document.getElementById('cart-items')?.querySelector('tbody') as HTMLElement;
         cartTableBody.innerHTML = ''; // Clear existing rows
-    
+
         cartItems.forEach(cartItem => {
+            console.log(cartItem.id)
             const row = document.createElement('tr');
-    
+
             // Create product name cell
             const productNameCell = document.createElement('td');
             productNameCell.textContent = cartItem.productName;
             row.appendChild(productNameCell);
-    
+
             // Create unit price cell
             const unitPriceCell = document.createElement('td');
             unitPriceCell.textContent = `$${cartItem.unitPrice}`; // ! toFixed(2)
             row.appendChild(unitPriceCell);
-    
+
             // Create quantity cell with buttons
             const quantityCell = document.createElement('td');
-            
+
             const decreaseButton = document.createElement('button');
             decreaseButton.innerHTML = '<i class="fa-solid fa-plus"></i>';
-            decreaseButton.onclick = () => this.updateQuantity(cartItem.cartItemId, -1);
+            decreaseButton.dataset.id = "" + cartItem.id;
+            decreaseButton.addEventListener('click', () => {
+                console.log('clicked');
+                if (cartItem.id) {
+                    console.log('clicked in');
+                    this.updateQuantity(cartItem.id, -1);
+                }
+            });
             quantityCell.appendChild(decreaseButton);
-            
+
             const quantitySpan = document.createElement('span');
-            quantitySpan.id = `quantity-${cartItem.cartItemId}`;
+            quantitySpan.id = `quantity-${cartItem.id}`;
             quantitySpan.textContent = cartItem.quantity.toString();
             quantityCell.appendChild(quantitySpan);
-            
+
             const increaseButton = document.createElement('button');
             increaseButton.innerHTML = '<i class="fa-solid fa-minus"></i>';
-            increaseButton.onclick = () => this.updateQuantity(cartItem.cartItemId, 1);
+            increaseButton.dataset.id = "" + cartItem.id;
+            increaseButton.addEventListener('click', () => {
+                console.log('clicked');
+                if (cartItem.id) {
+                    console.log('clicked in');
+                    this.updateQuantity(cartItem.id, -1);
+                }
+            });
             quantityCell.appendChild(increaseButton);
-            
+
             row.appendChild(quantityCell);
-    
+
             // Create total price cell
             const totalPriceCell = document.createElement('td');
-            totalPriceCell.id = `totalPrice-${cartItem.cartItemId}`;
+            totalPriceCell.id = `totalPrice-${cartItem.id}`;
             totalPriceCell.textContent = `$${cartItem.totalPrice}`; // ! toFixed(2)
             row.appendChild(totalPriceCell);
 
             // Actions cell
             const actionsCell = document.createElement('td');
-            
+
             const deleteButton = document.createElement('button');
             deleteButton.textContent = 'remove';
             deleteButton.classList.add('remove-item-btn');
-            // ! deleteButton.dataset.id = "" + cartItem.cartItemId;
-            deleteButton.onclick = () => this.removeFromCart(cartItem.cartItemId); //!
+            deleteButton.dataset.id = "" + cartItem.id;
+            deleteButton.addEventListener('click', () => {
+                console.log('clicked');
+                if (cartItem.id) {
+                    console.log('clicked in');
+                    this.removeFromCart(cartItem.id);
+                }
+            });
             actionsCell.appendChild(deleteButton);
 
             row.appendChild(actionsCell);
-    
+
             // Append row to table body
             cartTableBody.appendChild(row);
         });
     }
 
-    private async updateQuantity(cartItemId: string, change: number): Promise<void> {
-        const quantitySpan = document.getElementById(`quantity-${cartItemId}`) as HTMLSpanElement;
+    private async updateQuantity(id: string, change: number): Promise<void> {
+        const quantitySpan = document.getElementById(`quantity-${id}`) as HTMLSpanElement;
 
-        let newQuantity = parseInt(""+ quantitySpan.textContent) + change; // ! ""+
-    
+        let newQuantity = parseInt("" + quantitySpan.textContent) + change; // ! ""+
+
         if (newQuantity < 1) {
             newQuantity = 1; // Ensure the quantity is at least 1
         }
-    
-        // Update the quantity in the backend
+
         try {
-            const response = await fetch(`http://localhost:3000/cartItems/${cartItemId}`, {
+            const response = await fetch(`http://localhost:3000/cartItems/${id}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({ quantity: newQuantity })
             });
-    
+
             if (!response.ok) {
                 throw new Error('Failed to update cart item quantity');
             }
-    
+
             // Update the quantity and total price in the UI
             const cartItem = await response.json();
             quantitySpan.textContent = cartItem.quantity.toString();
-            this.updateTotalPrice(cartItemId, cartItem.unitPrice, cartItem.quantity);
+            this.updateTotalPrice(id, cartItem.unitPrice, cartItem.quantity);
         } catch (error) {
             console.error('Error updating cart item quantity: ', error);
         }
     }
 
-    private updateTotalPrice(cartItemId: string, unitPrice: number, quantity: number): void {
+    private updateTotalPrice(id: string, unitPrice: number, quantity: number): void {
         const totalPrice = unitPrice * quantity;
-        const totalPriceElement = document.getElementById(`totalPrice-${cartItemId}`) as HTMLTableCellElement;
+        const totalPriceElement = document.getElementById(`totalPrice-${id}`) as HTMLTableCellElement;
         totalPriceElement.textContent = `$${totalPrice}`; // ! toFixed(2)
     }
 
-    private async removeFromCart(cartItemId: string): Promise<void> {
+    private async removeFromCart(id: string): Promise<void> {
         try {
-            const response = await fetch(`http://localhost:3000/cartItem/${cartItemId}`, {
+            const response = await fetch(`http://localhost:3000/cartItem/${id}`, {
                 method: 'DELETE'
             });
 
@@ -171,7 +191,7 @@ export class App {
                 throw new Error('Failed to delete cart item');
             }
 
-            this.cartItems = this.cartItems.filter(cartItem => cartItem.cartItemId !== cartItemId);
+            this.cartItems = this.cartItems.filter(cartItem => cartItem.id !== id);
             this.displayCartItems(this.cartItems);
         } catch (error) {
             // console.error('Error deleting cart item: ', error);
